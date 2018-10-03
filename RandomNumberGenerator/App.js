@@ -18,7 +18,7 @@ const instructions = Platform.select({
 
 const geraNumeroAleatorio = () => {
   var numberRun = Math.random()
-  alert(Math.floor(numberRun *= 10));
+  alert(Math.floor(numberRun * 10));
 }
 
 type Props = {};
@@ -28,7 +28,7 @@ export default class App extends Component<Props> {
       <View style={styles.container}>
         <Text style={styles.welcome}>Gerador de numeros randômicos.</Text>
         <Text style={styles.instructions}>Aqui tem coragem!!!</Text>
-        {/* <Text style={styles.instructions}>{instructions}</Text> */}
+        <Text style={styles.instructions}>{instructions}</Text>
         <Button
           title="Gerar numero randômico"
           onPress={geraNumeroAleatorio}
