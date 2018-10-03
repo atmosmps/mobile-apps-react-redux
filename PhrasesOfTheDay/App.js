@@ -42,6 +42,12 @@ const styles = StyleSheet.create({
     fontSize: 20,
     textAlign: 'center',
     margin: 10,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      heigth: 5
+    },
+    shadowOpacity: 1
   },
   instructions: {
     textAlign: 'center',
