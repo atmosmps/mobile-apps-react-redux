@@ -7,7 +7,7 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import {Platform, StyleSheet, Text, View, Button, TouchableOpacity, Image} from 'react-native';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -16,6 +16,10 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
+const PressBt = () => {
+  alert('Botão pressionado');
+}
+
 export default class App extends Component {
   render() {
     return (
@@ -23,6 +27,13 @@ export default class App extends Component {
         <Text style={styles.welcome}>Welcome to React Native!</Text>
         <Text style={styles.instructions}>To get started, edit App.js</Text>
         <Text style={styles.instructions}>{instructions}</Text>
+        <Button
+          title='Agora'
+          onPress={PressBt}
+        />
+        <TouchableOpacity style={styles.botao} onPress={this._onPressButton}>
+          <Text style={styles.textBotao}>Botão de Teste</Text>
+        </TouchableOpacity>
       </View>
     );
   }
@@ -30,9 +41,10 @@ export default class App extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    flex: 1, // vai preencher o espaco de um de um total de um;
+    flexDirection: 'column',
+    justifyContent: 'center', //Alinha na vertical
+    alignItems: 'center', // Alinha na horizontal
     backgroundColor: '#F5FCFF',
     // padding: e um espacamento interno ao componente
     // Todos os componentes sao criados dentro de uma "caixa"
@@ -54,4 +66,17 @@ const styles = StyleSheet.create({
     color: '#333333',
     marginBottom: 5,
   },
+  botao: {
+    backgroundColor: '#48BBEC',
+    padding: 10,
+    borderColor: '#1d8eb8',
+    borderWidth: 3,
+    borderRadius: 8 //definie o arredondamento do botao
+  },
+  textBotao: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: 'bold',
+    alignSelf: 'center'
+  }
 });
