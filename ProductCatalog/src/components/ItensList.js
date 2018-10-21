@@ -1,10 +1,15 @@
 import React, {Component} from 'react';
-import {Text} from 'react-native';
+import {View} from 'react-native';
+import Itens from './Itens';
 
 export default class ItensList extends Component {
   render() {
     return (
-      <Text>Testando importação</Text>
+      <View>
+        <Itens/>
+        <Itens/>
+        <Itens/>
+      </View>
     );
   }
 }
