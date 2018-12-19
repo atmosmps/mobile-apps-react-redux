@@ -7,7 +7,7 @@
  */
 
 import React, {Component} from 'react';
-import {Text, View, Button} from 'react-native';
+import {Text, View, Button, Image} from 'react-native';
 
 export default class App extends Component {
 
@@ -84,13 +84,20 @@ export default class App extends Component {
   render() {
     return (
       <View>
-       <Text>Escolha do computador: {this.state.escolhacomputador} </Text>
-       <Text>Escolha do usuario: {this.state.escolhaUsuario}</Text>
-       <Text>Resultado: {this.state.resultadoJogo}</Text>
+        <View>
+          <Image source={require('./img/jokenpo.png')}/>
+        </View>
 
-       <Button title="pedra" onPress={ () => { this.jokenpo('Pedra') } } />
-       <Button title="papel" onPress={ () => { this.jokenpo('Papel') } } />
-       <Button title="tesoura" onPress={ () => { this.jokenpo('Tesoura') } } />
+        <View></View>
+        <View></View>
+
+        <Text>Escolha do computador: {this.state.escolhacomputador} </Text>
+        <Text>Escolha do usuario: {this.state.escolhaUsuario}</Text>
+        <Text>Resultado: {this.state.resultadoJogo}</Text>
+
+        <Button title="pedra" onPress={ () => { this.jokenpo('Pedra') } } />
+        <Button title="papel" onPress={ () => { this.jokenpo('Papel') } } />
+        <Button title="tesoura" onPress={ () => { this.jokenpo('Tesoura') } } />
       </View>
     );
   }
