@@ -7,7 +7,25 @@
  */
 
 import React, {Component} from 'react';
-import {Text, View, Button, Image} from 'react-native';
+import {Text, View, Button, Image, StyleSheet, TouchableOpacity} from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
+// import Icon from 'react-native-vector-icons/Ionicons';
+
+class Topo extends Component {
+  render() {
+    return (
+      <View>
+        <Image source={require('./img/jokenpo.png')}/>
+      </View>
+    )
+  }
+}
+
+class IconeGame extends Component {
+  render() {
+    
+  }
+}
 
 export default class App extends Component {
 
@@ -84,21 +102,95 @@ export default class App extends Component {
   render() {
     return (
       <View>
-        <View>
-          <Image source={require('./img/jokenpo.png')}/>
+        <Topo></Topo>
+
+        {/* Botões de acoes */}
+        <View style={styles.painelAcoes} >
+          <View style={styles.btnEscolha} >
+            <Button
+              title="pedra"
+              onPress={ () => { this.jokenpo('Pedra') } } />
+          </View>
+          
+          <View style={styles.btnEscolha} >
+            <Button
+              title="papel"
+              onPress={ () => { this.jokenpo('Papel') } } />
+          </View>
+
+          <View style={styles.btnEscolha} >
+            <Button
+              title="tesoura"
+              onPress={ () => { this.jokenpo('Tesoura') } } />
+          </View>
         </View>
 
-        <View></View>
-        <View></View>
+        <View style={styles.container} >
+          <TouchableOpacity onPress={this._onPressButton} style={styles.bottomOpacity}>
+            <Icon name="rocket" color="#4F8EF7" style={styles.imageBottom} />
+            <Text style={styles.textOpacity} >Teste Opacity</Text>
+          </TouchableOpacity>
 
-        <Text>Escolha do computador: {this.state.escolhacomputador} </Text>
-        <Text>Escolha do usuario: {this.state.escolhaUsuario}</Text>
-        <Text>Resultado: {this.state.resultadoJogo}</Text>
+          <TouchableOpacity onPress={this._onPressButton} style={styles.bottomOpacity}>
+            <Icon name="rocket" color="#4F8EF7" style={styles.imageBottom} />
+            <Text style={styles.textOpacity} >Teste Opacity</Text>
+          </TouchableOpacity>
 
-        <Button title="pedra" onPress={ () => { this.jokenpo('Pedra') } } />
-        <Button title="papel" onPress={ () => { this.jokenpo('Papel') } } />
-        <Button title="tesoura" onPress={ () => { this.jokenpo('Tesoura') } } />
+          <TouchableOpacity onPress={this._onPressButton} style={styles.bottomOpacity}>
+            <Icon name="rocket" color="#4F8EF7" style={styles.imageBottom} />
+            <Text style={styles.textOpacity} >Teste Opacity</Text>
+          </TouchableOpacity>
+        </View>
+
+        <View style={styles.palco}>
+          <Text style={styles.txtResultado}>{this.state.resultadoJogo}</Text>
+
+          <IconeGame escolha={this.state.escolhacomputador} jogador='Computador'></IconeGame>
+          <IconeGame escolha={this.state.escolhaUsuario} jogador='Usuario'></IconeGame>
+
+          {/* <Text>Escolha do computador: {this.state.escolhacomputador} </Text>
+          <Text>Escolha do usuario: {this.state.escolhaUsuario}</Text> */}
+
+        </View>
       </View>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    margin: 5
+  },
+  btnEscolha: {
+    width: 100
+  },
+  painelAcoes: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    margin: 10
+  },
+  bottomOpacity: {
+    alignItems: 'center',
+    backgroundColor: "#DDDDDD",
+    paddingVertical: 20,
+    paddingHorizontal: 10,
+    // marginBottom: 10
+  },
+  textOpacity: {
+    // color: 'white',
+    fontSize: 15,
+    fontWeight: 'bold'
+  },
+  palco: {
+    alignItems: 'center',
+    marginTop: 10
+  },
+  txtResultado: {
+    fontSize: 25,
+    fontWeight: 'bold',
+    color: 'red',
+    height: 60
+  }
+})
