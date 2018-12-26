@@ -23,7 +23,30 @@ class Topo extends Component {
 
 class IconeGame extends Component {
   render() {
-    
+    if (this.props.escolha == 'Pedra') {
+      return (
+        <View style={styles.txtIcone}>
+          <Text style={styles.txtJogadorImagem}>{this.props.jogador}</Text>
+          <Image source={require('./img/pedra.png')} />
+        </View>
+      )
+    } else if (this.props.escolha = 'Papel') {
+      return (
+        <View style={styles.txtIcone}>
+          <Text style={styles.txtJogadorImagem}>{this.props.jogador}</Text>
+          <Image source={require('./img/papel.png')} />
+        </View>
+      )
+    } else if (this.props.escolha == 'Tesoura') {
+      return (
+        <View style={styles.txtIcone}>
+          <Text style={styles.txtJogadorImagem}>{this.props.jogador}</Text>
+          <Image source={require('./img/tesoura.png')} />
+        </View>
+      )
+    } else {
+      return false;
+    }
   }
 }
 
@@ -56,11 +79,11 @@ export default class App extends Component {
       }
 
       if (userChoice == 'Papel') {
-        resultado = 'Usuario ganhou.'
+        resultado = 'Você ganhou!'
       }
 
       if (userChoice == 'Tesoura') {
-        resultado = 'Computador Ganhou.'
+        resultado = 'Computador ganhou!'
       }
     }
 
@@ -70,11 +93,11 @@ export default class App extends Component {
       }
 
       if (userChoice == 'Pedra') {
-        resultado = 'Usuario ganhou.'
+        resultado = 'Você ganhou!'
       }
 
       if (userChoice == 'Papel') {
-        resultado = 'Computador ganhou.'
+        resultado = 'Computador ganhou!'
       }
     }
 
@@ -84,11 +107,11 @@ export default class App extends Component {
       }
 
       if (userChoice == 'Tesoura') {
-        resultado = 'Usuario ganhou.'
+        resultado = 'Você ganhou!'
       }
 
       if (userChoice == 'Pedra') {
-        resultado = 'Computador ganhou.'
+        resultado = 'Computador ganhou!'
       }
     }
 
@@ -146,7 +169,7 @@ export default class App extends Component {
           <Text style={styles.txtResultado}>{this.state.resultadoJogo}</Text>
 
           <IconeGame escolha={this.state.escolhacomputador} jogador='Computador'></IconeGame>
-          <IconeGame escolha={this.state.escolhaUsuario} jogador='Usuario'></IconeGame>
+          <IconeGame escolha={this.state.escolhaUsuario} jogador='Você'></IconeGame>
 
           {/* <Text>Escolha do computador: {this.state.escolhacomputador} </Text>
           <Text>Escolha do usuario: {this.state.escolhaUsuario}</Text> */}
@@ -192,5 +215,12 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: 'red',
     height: 60
+  },
+  txtIcone: {
+    alignItems: 'center',
+    marginBottom: 20,
+  },
+  txtJogadorImagem: {
+    fontSize: 18
   }
 })
