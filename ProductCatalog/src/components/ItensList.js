@@ -22,7 +22,7 @@ export default class ItensList extends Component {
 
   render() {
     return (
-      <ScrollView>
+      <ScrollView style={{ backgroundColor: '#DDD' }} >
         {
           this.state.itensList.map(item => (
             <Itens key={item.titulo} item={item} />
